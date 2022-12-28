@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/pages/coming.dart';
-import 'package:billboard_movies/pages/popular.dart';
-import 'package:billboard_movies/pages/top.dart';
+import 'package:billboard_movies/pages/coming_page.dart';
+import 'package:billboard_movies/pages/popular_page.dart';
+import 'package:billboard_movies/pages/top_page.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -42,9 +42,36 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
           Top() 
         ],
       ),
-      drawer: const Drawer(),
 
-      bottomNavigationBar: Material(
+      drawer: Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(10),
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blueGrey,
+              ),
+              child: Text(''),
+            ),
+            ListTile(
+              trailing: const Icon(Icons.local_movies),
+              title: const Text('Movies'),
+              onTap: () {},
+            ),
+            ListTile(
+              trailing: const Icon(Icons.live_tv),
+              title: const Text('TV'),
+              onTap: () {},
+            ),
+            ListTile(
+              trailing: const Icon(Icons.close),
+              title: const Text('Close'),
+              onTap: () => Navigator.of(context).pop(),
+            )],
+          ),
+        ),
+
+        bottomNavigationBar: Material(
         child:  TabBar(
           controller: controller,
           tabs: const <Tab>[
