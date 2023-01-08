@@ -1,5 +1,4 @@
-import 'package:billboard_movies/common/http_handler.dart';
-import 'package:billboard_movies/media_list.dart';
+import 'package:billboard_movies/pages/popular_page.dart';
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/pages/coming_page.dart';
 import 'package:billboard_movies/pages/top_page.dart';
@@ -18,13 +17,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
   void initState(){
     super.initState();
     controller =  TabController(length: 3, vsync: this);
-    //_loadJson();
   }
-
-  /*_loadJson() async {
-    var data = await HttpHandler().fetchMovies();
-    print(data);
-  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +37,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-          MediaList(),
-          //Popular(), 
+          Popular(), 
           Coming(),
           Top() 
         ],
