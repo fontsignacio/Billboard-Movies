@@ -37,5 +37,16 @@ class HttpHandler{
     );
   }
   
+  Future<List<Media>> fetchTop(){
+    var uri = Uri.https(_baseUrl, "3/movie/top_rated",{
+      'api_key' : API_KEY,
+      'page' : "1",
+      'language' : _language
+    });     
+
+    return getJson(uri).then((data) => 
+      data['results'].map<Media>((item) => Media(item)).toList()
+    );
+  }
 }
 
