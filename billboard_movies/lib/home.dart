@@ -50,6 +50,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
             const DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.blueGrey,
+                image: DecorationImage(
+                  image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3oVyZG_nC0IDmkAl_dggPmK64ye3piV7HPrA1MZC6lX3UQ0Ui6-aMloFGljFXk1bcByg&usqp=CAU'),
+                  fit: BoxFit.cover,
+                ),
               ),
               child: Text(''),
             ),

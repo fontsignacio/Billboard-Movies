@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/common/http_handler.dart';
 import 'package:billboard_movies/model/media.dart';
-import 'package:billboard_movies/media_list_item.dart';
+import 'package:billboard_movies/model/media_list_item.dart';
 
 
 class Top extends StatefulWidget {
