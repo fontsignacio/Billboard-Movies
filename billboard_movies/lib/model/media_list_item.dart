@@ -61,8 +61,8 @@ class MediaListItem extends StatelessWidget {
                       Text(media.releaseDate, 
                       style: const TextStyle(color: Colors.white)),
                       const Icon(Icons.calendar_month, size: 17)
-                    ],
-                  )
+                  ],
+                )
               )
             ],
           )

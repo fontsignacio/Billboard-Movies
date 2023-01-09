@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:billboard_movies/common/http_handler.dart';
 import 'package:billboard_movies/model/media.dart';
 import 'package:billboard_movies/model/media_list_item.dart';
-
+import 'package:billboard_movies/model/media_movie_overview.dart';
 
 class Top extends StatefulWidget {
   const Top({super.key});
@@ -28,11 +28,20 @@ class _TopState extends State<Top> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _media.length,
-      itemBuilder:  (context, index){
-        return MediaListItem(media: _media[index]);
-      }     
+    return Scaffold( 
+      body: ListView.builder(
+        itemCount: _media.length,
+        itemBuilder:  (context, index) {
+          return GestureDetector(
+            child: MediaListItem(media: _media[index]),
+            onTap: () {
+              var router = MaterialPageRoute(
+              builder: (context) => MediaOverview(media: _media[index]));
+              Navigator.of(context).push(router);
+            }
+          );
+        }
+      ),
     );
   }
 }
