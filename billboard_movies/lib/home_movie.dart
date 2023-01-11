@@ -1,3 +1,4 @@
+import 'package:billboard_movies/home_favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/pages/popular_page.dart';
 import 'package:billboard_movies/pages/coming_page.dart';
@@ -69,10 +70,19 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
             ),
             ListTile(
               trailing: const Icon(Icons.live_tv),
-              title: const Text('TV'),
+              title: const Text('TV Shows'),
               onTap: () {
                 var router = MaterialPageRoute(
                 builder: (context) => const HomeTv());
+                Navigator.of(context).push(router);
+              },
+            ),
+            ListTile(
+              trailing: const Icon(Icons.favorite),
+              title: const Text('Favorites'),
+              onTap: () {
+                var router = MaterialPageRoute(
+                builder: (context) => const Favorites());
                 Navigator.of(context).push(router);
               },
             ),

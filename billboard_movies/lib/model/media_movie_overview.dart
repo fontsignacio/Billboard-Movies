@@ -14,14 +14,24 @@ class MediaOverview extends StatelessWidget {
     body: Card( 
       child: Column(
           children: <Widget>[
-            Stack(
+            ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Stack(
               children: <Widget>[
+
                 FadeInImage.assetNetwork(
-                  placeholder: "assets/placeholder.jpg",
-                  image: media.getBackDropUrl(),
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: 300,
+                    placeholder: "assets/placeholder.jpg",
+                    image: media.getBackDropUrl(),
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 300,
+                ),
+                const Positioned(
+                  left: 450,
+                  bottom: 260,
+                  child: Icon(Icons.favorite_border,
+                  size: 35,
+                  color: Colors.white)
                 ),
                 Positioned(
                   left: 20.0,
@@ -36,8 +46,9 @@ class MediaOverview extends StatelessWidget {
                     ),
                   ],
                  ),
-                ),
-              ],     
+                ), 
+              ],
+              )     
             ),
             Card(
               child: Column(

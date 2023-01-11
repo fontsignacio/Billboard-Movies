@@ -10,7 +10,9 @@ class MediaListItem extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Stack(
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child:Stack(
             children: <Widget>[
               FadeInImage.assetNetwork(
                 placeholder: "assets/placeholder.jpg",
@@ -18,6 +20,13 @@ class MediaListItem extends StatelessWidget {
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: 300,
+              ),
+              const Positioned(
+                left: 450,
+                bottom: 260,
+                child: Icon(Icons.favorite_border,
+                 size: 35,
+                 color: Colors.white)
               ),
               Positioned(
                 left: 0.0,
@@ -78,8 +87,9 @@ class MediaListItem extends StatelessWidget {
               )
             ],
           )
-        ],
+        )],
       ),
     );
   }
 }
+
