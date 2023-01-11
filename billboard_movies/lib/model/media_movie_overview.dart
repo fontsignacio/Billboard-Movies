@@ -62,6 +62,14 @@ class MediaOverview extends StatelessWidget {
                         style: const TextStyle(color: Colors.white))
                     ],
                   ),
+                  Row(
+                    children: [
+                      const Text("\n"),
+                      const Icon(Icons.star, color: Colors.yellow, size: 20),
+                      Text(" ${media.voteAvarge}",  
+                        style: const TextStyle(color: Colors.white))
+                    ],
+                  ),
                 ],
               )
             ),

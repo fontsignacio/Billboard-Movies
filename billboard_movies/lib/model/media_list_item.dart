@@ -54,15 +54,27 @@ class MediaListItem extends StatelessWidget {
                 ),
               ),
               Positioned(
-                  left: 400.0,
+                  left: 390.0,
                   bottom: 10.0,
                   child: Row(
                     children: [
-                      Text(media.releaseDate, 
+                      Text("${media.releaseDate} ", 
                       style: const TextStyle(color: Colors.white)),
                       const Icon(Icons.calendar_month, size: 17)
                   ],
                 )
+              ),
+              Positioned(
+                left: 436.0,
+                bottom: 21.0,
+                child: Row(
+                  children: [
+                    const Text("\n"),
+                    const Icon(Icons.star, color: Colors.yellow, size: 20),
+                    Text(" ${media.voteAvarge}",  
+                      style: const TextStyle(color: Colors.white))
+                  ],
+                ),
               )
             ],
           )
