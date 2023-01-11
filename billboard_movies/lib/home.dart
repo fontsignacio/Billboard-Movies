@@ -60,7 +60,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
             ListTile(
               trailing: const Icon(Icons.local_movies),
               title: const Text('Movies'),
-              onTap: () {},
+              onTap: () {
+                var router = MaterialPageRoute(
+                builder: (context) => const Home());
+                Navigator.of(context).push(router);
+              },
             ),
             ListTile(
               trailing: const Icon(Icons.live_tv),

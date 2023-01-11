@@ -48,5 +48,43 @@ class HttpHandler{
       data['results'].map<Media>((item) => Media(item)).toList()
     );
   }
+
+  Future<List<Media>> fetchTv(){
+    var uri = Uri.https(_baseUrl, "3/tv/popular",{
+      'api_key' : API_KEY,
+      'page' : "1",
+      'language' : _language
+    });     
+
+    return getJson(uri).then((data) => 
+      data['results'].map<Media>((item) => Media(item)).toList()
+    );
+  }
+
+  Future<List<Media>> fetchTvUpcoming(){
+    var uri = Uri.https(_baseUrl, "3/tv/latest",{
+      'api_key' : API_KEY,
+      'page' : "1",
+      'language' : _language
+    });     
+
+    return getJson(uri).then((data) => 
+      data['results'].map<Media>((item) => Media(item)).toList()
+    );
+  }
+  
+  Future<List<Media>> fetchTvTop(){
+    var uri = Uri.https(_baseUrl, "3/tv/top_rated",{
+      'api_key' : API_KEY,
+      'page' : "1",
+      'language' : _language
+    });     
+
+    return getJson(uri).then((data) => 
+      data['results'].map<Media>((item) => Media(item)).toList()
+    );
+  }
+
+
 }
 
