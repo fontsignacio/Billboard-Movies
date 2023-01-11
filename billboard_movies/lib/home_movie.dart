@@ -1,16 +1,17 @@
-import 'package:billboard_movies/pages/popular_page.dart';
 import 'package:flutter/material.dart';
+import 'package:billboard_movies/pages/popular_page.dart';
 import 'package:billboard_movies/pages/coming_page.dart';
 import 'package:billboard_movies/pages/top_page.dart';
+import 'package:billboard_movies/home_tv.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class HomeMovie extends StatefulWidget {
+  const HomeMovie({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<HomeMovie> createState() => _HomeMovieState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
+class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMixin{
   late TabController controller;
 
   @override
@@ -39,7 +40,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
         children: const <Widget>[
           Popular(), 
           Coming(),
-          Top() 
+          Top()
         ],
       ),
 
@@ -62,14 +63,18 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
               title: const Text('Movies'),
               onTap: () {
                 var router = MaterialPageRoute(
-                builder: (context) => const Home());
+                builder: (context) => const HomeMovie());
                 Navigator.of(context).push(router);
               },
             ),
             ListTile(
               trailing: const Icon(Icons.live_tv),
               title: const Text('TV'),
-              onTap: () {},
+              onTap: () {
+                var router = MaterialPageRoute(
+                builder: (context) => const HomeTv());
+                Navigator.of(context).push(router);
+              },
             ),
             ListTile(
               trailing: const Icon(Icons.close),

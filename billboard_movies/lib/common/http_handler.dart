@@ -61,7 +61,7 @@ class HttpHandler{
     );
   }
 
-  Future<List<Media>> fetchTvUpcoming(){
+  Future<List<Media>> fetchTvLatest(){
     var uri = Uri.https(_baseUrl, "3/tv/latest",{
       'api_key' : API_KEY,
       'page' : "1",

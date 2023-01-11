@@ -1,9 +1,19 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';/*
 import 'package:billboard_movies/common/http_handler.dart';
 import 'package:billboard_movies/model/media.dart';
 import 'package:billboard_movies/model/media_list_item.dart';
-import 'package:billboard_movies/model/media_movie_overview.dart';
+import 'package:billboard_movies/model/media_movie_overview.dart';*/
 
+
+class PopularTv extends StatelessWidget {
+  const PopularTv({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+/*
 class PopularTv extends StatefulWidget {
   const PopularTv({super.key});
 
@@ -44,4 +54,4 @@ class _PopularTvState extends State<PopularTv> {
       ),
     );
   }
-}
+}*/

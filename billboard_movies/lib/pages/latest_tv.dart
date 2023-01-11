@@ -1,26 +1,37 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';/*
 import 'package:billboard_movies/common/http_handler.dart';
 import 'package:billboard_movies/model/media.dart';
 import 'package:billboard_movies/model/media_list_item.dart';
-import 'package:billboard_movies/model/media_movie_overview.dart';
+import 'package:billboard_movies/model/media_movie_overview.dart';*/
 
-class Popular extends StatefulWidget {
-  const Popular({super.key});
+
+class Latest extends StatelessWidget {
+  const Latest({super.key});
 
   @override
-  State<Popular> createState() => _PopularState();
+  Widget build(BuildContext context) {
+    return Container();
+  }
 }
 
-class _PopularState extends State<Popular> {
+/*
+class Latest extends StatefulWidget {
+  const Latest({super.key});
+
+  @override
+  State<Latest> createState() => _LatestState();
+}
+
+class _LatestState extends State<Latest> {
   final List<Media> _media = [];
-  
+
   @override
   void initState(){
     super.initState();
     loadMovies();
   }
   void loadMovies()async{
-    var movies = await HttpHandler().fetchMovies();
+    var movies = await HttpHandler().fetchTvLatest();
     setState(() {
       _media.addAll(movies);
     });
@@ -44,4 +55,4 @@ class _PopularState extends State<Popular> {
       ),
     );
   }
-}
+}*/
