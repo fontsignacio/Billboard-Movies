@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/model/media.dart';
 
-class MediaOverview extends StatelessWidget {
-  const MediaOverview ({super.key, required this.media});
-  final Media media;
+class MediaOverviewTv extends StatelessWidget {
+  const MediaOverviewTv ({super.key, required this.media});
+  final Media1 media;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class MediaOverview extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(media.title, 
+                      Text(media.name, 
                       style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30,
                         color: Colors.white
                         )
@@ -67,7 +67,7 @@ class MediaOverview extends StatelessWidget {
                     children: [
                       const Text("\n"),
                       const Text("Date: ", style: TextStyle(color: Colors.white60)),
-                      Text(media.releaseDate, 
+                      Text(media.firstDate, 
                         style: const TextStyle(color: Colors.white))
                     ],
                   ),

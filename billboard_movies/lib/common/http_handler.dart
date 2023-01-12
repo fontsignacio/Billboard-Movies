@@ -49,7 +49,7 @@ class HttpHandler{
     );
   }
 
-  Future<List<Media>> fetchTv(){
+  Future<List<Media1>> fetchTv(){
     var uri = Uri.https(_baseUrl, "3/tv/popular",{
       'api_key' : API_KEY,
       'page' : "1",
@@ -61,7 +61,7 @@ class HttpHandler{
     );
   }
 
-  Future<List<Media>> fetchTvLatest(){
+  Future<List<Media1>> fetchTvLatest(){
     var uri = Uri.https(_baseUrl, "3/tv/latest",{
       'api_key' : API_KEY,
       'page' : "1",
@@ -73,7 +73,7 @@ class HttpHandler{
     );
   }
   
-  Future<List<Media>> fetchTvTop(){
+  Future<List<Media1>> fetchTvTop(){
     var uri = Uri.https(_baseUrl, "3/tv/top_rated",{
       'api_key' : API_KEY,
       'page' : "1",

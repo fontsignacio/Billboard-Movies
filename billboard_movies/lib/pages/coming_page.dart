@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/common/http_handler.dart';
 import 'package:billboard_movies/model/media.dart';
-import 'package:billboard_movies/model/media_list_item.dart';
+import 'package:billboard_movies/model/media_list_movie.dart';
 import 'package:billboard_movies/model/media_movie_overview.dart';
 
 
@@ -29,7 +29,7 @@ class _ComingState extends State<Coming> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(  
       body: ListView.builder(
         itemCount: _media.length,
         itemBuilder:  (context, index) {

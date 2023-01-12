@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/model/media.dart';
 
-class MediaListItem extends StatelessWidget {
-  const MediaListItem({super.key, required this.media});
-  final Media media;
+class MediaListTv extends StatelessWidget {
+  const MediaListTv({super.key, required this.media});
+  final Media1 media;
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          ClipRRect(
+    return Card( 
+    child: Column(
+      children: <Widget>[
+        ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child:Stack(
             children: <Widget>[
               FadeInImage.assetNetwork(
-                placeholder: "assets/placeholder.jpg",
+                placeholder: "assets/images/placeholder.jpg",
                 image: media.getBackDropUrl(),
                 fit: BoxFit.cover,
                 width: double.infinity,
@@ -47,7 +47,7 @@ class MediaListItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(media.title, 
+                    Text(media.name, 
                     style: const TextStyle(fontWeight: FontWeight.bold,
                     color: Colors.white
                     )
@@ -62,17 +62,17 @@ class MediaListItem extends StatelessWidget {
                   )],
                 ),
               ),
-              Positioned(
+              /*Positioned(
                   left: 390.0,
                   bottom: 10.0,
                   child: Row(
                     children: [
-                      Text("${media.releaseDate} ", 
+                      Text("${media.firstDate} ", 
                       style: const TextStyle(color: Colors.white)),
                       const Icon(Icons.calendar_month, size: 17)
                   ],
                 )
-              ),
+              ),*/
               Positioned(
                 left: 436.0,
                 bottom: 21.0,
@@ -86,10 +86,10 @@ class MediaListItem extends StatelessWidget {
                 ),
               )
             ],
-          )
-        )],
-      ),
-    );
+          ),
+        ),
+      ]
+    ));
   }
 }
 
