@@ -19,7 +19,7 @@ class MediaOverview extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 FadeInImage.assetNetwork(
-                    placeholder: "assets/images/placeholder.jpg",
+                    placeholder: "assets/placeholder.jpg",
                     image: media.getBackDropUrl(),
                     fit: BoxFit.cover,
                     width: double.infinity,

@@ -7,20 +7,20 @@ class MediaListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card( 
-    child: Column(
+    return Column(
       children: <Widget>[
         ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child:Stack(
             children: <Widget>[
               FadeInImage.assetNetwork(
-                placeholder: "assets/images/placeholder.jpg",
-                image: media.getBackDropUrl(),
+                placeholder: 'assets/placeholder.jpg',
+                image: media.getPosterUrl(),
                 fit: BoxFit.cover,
-                width: double.infinity,
-                height: 300,
-              ),
+                //width: double.infinity,
+                width: 145,
+                height: 230,
+              ),/*
               const Positioned(
                 left: 450,
                 bottom: 260,
@@ -84,12 +84,12 @@ class MediaListItem extends StatelessWidget {
                       style: const TextStyle(color: Colors.white))
                   ],
                 ),
-              )
+              )*/
             ],
           ),
         ),
       ]
-    ));
+    );//);
   }
 }
 
