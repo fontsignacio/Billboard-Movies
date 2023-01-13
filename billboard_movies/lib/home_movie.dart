@@ -46,12 +46,17 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
       ),
 
       drawer: Drawer(
+        backgroundColor: const Color(0xff0f111d),
         child: ListView(
           padding: const EdgeInsets.all(10),
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blueGrey,
+                boxShadow: [BoxShadow(
+                  color: Colors.white,
+                  spreadRadius: 1,
+                  blurRadius: 8 
+                )],
                 image: DecorationImage(
                   image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3oVyZG_nC0IDmkAl_dggPmK64ye3piV7HPrA1MZC6lX3UQ0Ui6-aMloFGljFXk1bcByg&usqp=CAU'),
                   fit: BoxFit.cover,
@@ -60,8 +65,8 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
               child: Text(''),
             ),
             ListTile(
-              trailing: const Icon(Icons.local_movies),
-              title: const Text('Movies'),
+              trailing: const Icon(Icons.local_movies, color: Colors.white),
+              title: const Text('Movies', style: TextStyle(color: Colors.white)),
               onTap: () {
                 var router = MaterialPageRoute(
                 builder: (context) => const HomeMovie());
@@ -69,8 +74,8 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
               },
             ),
             ListTile(
-              trailing: const Icon(Icons.live_tv),
-              title: const Text('TV Shows'),
+              trailing: const Icon(Icons.live_tv, color: Colors.white),
+              title: const Text('TV Shows', style: TextStyle(color: Colors.white)),
               onTap: () {
                 var router = MaterialPageRoute(
                 builder: (context) => const HomeTv());
@@ -78,8 +83,8 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
               },
             ),
             ListTile(
-              trailing: const Icon(Icons.favorite),
-              title: const Text('Favorites'),
+              trailing: const Icon(Icons.favorite, color: Colors.white),
+              title: const Text('Favorites', style: TextStyle(color: Colors.white)),
               onTap: () {
                 var router = MaterialPageRoute(
                 builder: (context) => const Favorites());
@@ -87,15 +92,18 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
               },
             ),
             ListTile(
-              trailing: const Icon(Icons.close),
-              title: const Text('Close'),
+              trailing: const Icon(Icons.close, color: Colors.white),
+              title: const Text('Close', style: TextStyle(color: Colors.white)),
               onTap: () => Navigator.of(context).pop(),
             )],
           ),
         ),
 
-        bottomNavigationBar: Material(
+      bottomNavigationBar: Material(
+        shadowColor: Colors.white,
+        color: const Color(0xff292b37),
         child:  TabBar(
+          indicatorColor: Colors.white,
           controller: controller,
           tabs: const <Tab>[
             Tab(
