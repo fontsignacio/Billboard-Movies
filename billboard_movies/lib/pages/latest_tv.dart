@@ -1,20 +1,9 @@
-import 'package:flutter/material.dart';/*
+import 'package:billboard_movies/model/media_list_tv.dart';
+import 'package:billboard_movies/model/media_tv_overview.dart';
+import 'package:flutter/material.dart';
 import 'package:billboard_movies/common/http_handler.dart';
 import 'package:billboard_movies/model/media.dart';
-import 'package:billboard_movies/model/media_list_item.dart';
-import 'package:billboard_movies/model/media_movie_overview.dart';*/
 
-
-class Latest extends StatelessWidget {
-  const Latest({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-/*
 class Latest extends StatefulWidget {
   const Latest({super.key});
 
@@ -23,36 +12,64 @@ class Latest extends StatefulWidget {
 }
 
 class _LatestState extends State<Latest> {
-  final List<Media> _media = [];
+  final List<Media1> _media = [];
+  final ScrollController _controllerOne = ScrollController();
 
+  
   @override
   void initState(){
     super.initState();
     loadMovies();
   }
   void loadMovies()async{
-    var movies = await HttpHandler().fetchTvLatest();
+    var tv = await HttpHandler().fetchTvLatest();
     setState(() {
-      _media.addAll(movies);
+      _media.addAll(tv);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
-      body: ListView.builder(
-        itemCount: _media.length,
-        itemBuilder:  (context, index) {
-          return GestureDetector(
-            child: MediaListItem(media: _media[index]),
-            onTap: () {
-              var router = MaterialPageRoute(
-              builder: (context) => MediaOverview(media: _media[index]));
-              Navigator.of(context).push(router);
-            }
-          );
-        }
-      ),
+    return Scaffold(
+    body: Stack(
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(12),
+          child: Text("Latest Movies",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,
+            color: Colors.white )),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 34),
+          child: SizedBox(
+            height: 225,
+            child: Scrollbar(
+              thumbVisibility: true,
+              controller: _controllerOne,
+              child: ListView.separated(
+                padding: const EdgeInsets.all(10),
+                scrollDirection: Axis.horizontal,
+                controller: _controllerOne,
+                itemCount: _media.length,
+                separatorBuilder: (context, index) {
+                  return const SizedBox(width: 8);
+                },
+                itemBuilder:  (context, index) {
+                  return GestureDetector(
+                    child: MediaListTv(media: _media[index]),
+                    onTap: () {
+                        var router = MaterialPageRoute(
+                        builder: (context) => MediaOverviewTv(media: _media[index]));
+                        Navigator.of(context).push(router);
+                      }
+                    );
+                  }
+                ),
+              )
+            )  
+          ),    
+        ]
+      )
     );
   }
-}*/
+}
