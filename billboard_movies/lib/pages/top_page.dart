@@ -41,7 +41,7 @@ class _TopState extends State<Top> {
         Padding(
           padding: const EdgeInsets.only(top: 34),
           child: SizedBox(
-            height: 250,
+            height: 225,
             child: Scrollbar(
               thumbVisibility: true,
               controller: _controllerOne,

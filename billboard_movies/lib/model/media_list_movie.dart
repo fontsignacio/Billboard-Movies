@@ -16,8 +16,8 @@ class MediaListItem extends StatelessWidget {
               Image.network (
                 media.getPosterUrl(),
                 fit: BoxFit.cover,
-                width: 145,
-                height: 230,
+                width: 130,
+                height: 205,
               ),
             ],
           ),
