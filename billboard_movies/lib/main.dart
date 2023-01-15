@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/home_movie.dart';
+import 'package:billboard_movies/home.dart';
 
 void main(){
   runApp(MaterialApp( 

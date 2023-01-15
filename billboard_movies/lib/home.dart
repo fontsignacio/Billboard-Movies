@@ -1,9 +1,7 @@
-import 'package:billboard_movies/home_favorites.dart';
+import 'package:billboard_movies/pages/favorites.dart';
+import 'package:billboard_movies/pages/search.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/pages/popular_page.dart';
-import 'package:billboard_movies/pages/coming_page.dart';
-import 'package:billboard_movies/pages/top_page.dart';
-import 'package:billboard_movies/home_tv.dart';
+import 'package:billboard_movies/pages/home_page.dart';
 
 class HomeMovie extends StatefulWidget {
   const HomeMovie({super.key});
@@ -26,22 +24,14 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
     return Scaffold(
       appBar: AppBar(
         title: const Text("Billboard Movies"),
-
-        actions: <Widget>[
-          IconButton(
-              icon: const Icon(Icons.search, color: Colors.white,),
-              onPressed: () {
-            },
-          )
-        ],
       ),
 
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-          Popular(), 
-          Coming(),
-          Top()
+          HomePage(),
+          User(),
+          Favorites(),
         ],
       ),
 
@@ -77,9 +67,9 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
               trailing: const Icon(Icons.live_tv, color: Colors.white),
               title: const Text('TV Shows', style: TextStyle(color: Colors.white)),
               onTap: () {
-                var router = MaterialPageRoute(
+                /*var router = MaterialPageRoute(
                 builder: (context) => const HomeTv());
-                Navigator.of(context).push(router);
+                Navigator.of(context).push(router);*/
               },
             ),
             ListTile(
@@ -100,27 +90,31 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
         ),
 
       bottomNavigationBar: Material(
-        shadowColor: Colors.white,
-        color: const Color(0xff292b37),
-        child:  TabBar(
-          indicatorColor: Colors.white,
-          controller: controller,
-          tabs: const <Tab>[
-            Tab(
-              icon: Icon(Icons.thumb_up),
-              text: "Popular"
-            ),
-            Tab(
-              icon: Icon(Icons.update),
-              text: "Coming soon"
-            ),
-            Tab(
-              icon: Icon(Icons.star),
-              text: "Top Movies"
-            )
-          ],
+        shadowColor: Colors.white, 
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(25),
+          topRight: Radius.circular(25)
         ),
-      ),
+        color: const Color(0xff292b37),
+        child:  SizedBox(
+          height: 65,
+          child: TabBar(
+            indicatorColor: Colors.white,
+            controller: controller,
+            tabs: const <Tab>[
+              Tab(
+                icon: Icon(Icons.home, size: 35),
+              ),
+              Tab(
+                icon: Icon(Icons.search, size: 35),
+              ),
+              Tab(
+                icon: Icon(Icons.favorite, size: 35),
+              )
+            ],
+          ),
+        ),
+      )
     );
   }
 }

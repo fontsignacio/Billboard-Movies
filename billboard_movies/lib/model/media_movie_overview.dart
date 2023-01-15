@@ -18,43 +18,157 @@ class MediaOverview extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           child: Stack(
             children: <Widget>[
-              FadeInImage.assetNetwork(
-                  placeholder: "assets/placeholder.jpg",
-                  image: media.getBackDropUrl(),
+              Opacity(
+                opacity: 0.4,
+                child:Image.network(
+                  media.getBackDropUrl(),
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: 300,
+                )
               ),
-              const Positioned(
-                left: 450,
-                bottom: 260,
-                child: Icon(Icons.favorite_border,
-                size: 35,
-                color: Colors.white)
-              ),
-              Positioned(
-                left: 20.0,
-                bottom: 20.0,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(media.title, 
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 30,
-                      color: Colors.white
-                      )
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 110),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: const BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.redAccent,
+                            spreadRadius: 1,
+                            blurRadius: 8 
+                          )
+                        ],                       
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                          media.getPosterUrl(),
+                          fit: BoxFit.cover,
+                          height: 250,
+                          width: 180,
+                        ),
+                      ),
                     ),
-                  ],
+                    GestureDetector(
+                      child: Container(
+                        margin: const EdgeInsets.only(left:100, top: 75),
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40),
+                          color: Colors.deepOrange,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.deepOrange.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 10 
+                            )
+                          ],                       
+                        ),
+                        child: const  Icon(Icons.play_arrow,
+                            size: 60, 
+                            color: Colors.white),                       
+                      ),
+                      onTap: () {
+                        var router = MaterialPageRoute(
+                        builder: (context) => Image.network(media.getBackDropUrl()));
+                        Navigator.of(context).push(router);
+                      },
+                    ), 
+                  ], 
+                ), 
+              ),
+              Container(
+                padding: const EdgeInsets.all(15),
+                margin: const EdgeInsets.only(left: 30, top: 390),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xff292b37),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xff292b37).withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 4 
+                    )
+                  ],                       
                 ),
+                child: const Icon(Icons.add, color: Colors.white, size: 35),  
               ), 
-            ])     
+              Container(
+                padding: const EdgeInsets.all(15),
+                margin: const EdgeInsets.only(left: 150, top: 390),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xff292b37),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xff292b37).withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 4 
+                    )
+                  ],                       
+                ),
+                child: const Icon(Icons.favorite_border, color: Colors.white, size: 35),  
+              ), 
+                    Container(
+                      padding: const EdgeInsets.all(15),
+                      margin: const EdgeInsets.only(left: 270, top: 390),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color(0xff292b37),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xff292b37).withOpacity(0.5),
+                            spreadRadius: 1,
+                            blurRadius: 4 
+                          )
+                        ],                       
+                      ),
+                      child: const Icon(Icons.download, color: Colors.white, size: 35),  
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(15),
+                      margin: const EdgeInsets.only(left: 390, top: 390),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color(0xff292b37),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xff292b37).withOpacity(0.5),
+                            spreadRadius: 1,
+                            blurRadius: 4 
+                          )
+                        ],                       
+                      ),
+                      child: const Icon(Icons.share, color: Colors.white, size: 35),  
+                    ),  
+            ]
+            )     
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(media.title, 
+                        style: const TextStyle(
+                          fontWeight: FontWeight.
+                          bold, fontSize: 30,
+                          color: Colors.white
+                      )
+                    ),
+                  )
+                ]
+              ),
+              Row(
                 children: [
                   const Text("\n"),
-                  const Text(" Genres: ", style: TextStyle(color: Colors.white60)),
+                  const Text("   Genres: ", style: TextStyle(color: Colors.white60)),
                   Text(media.getGenres(), 
                         style: const TextStyle(color: Colors.white),
                         maxLines: 1,
@@ -65,14 +179,14 @@ class MediaOverview extends StatelessWidget {
               Row(
                 children: [
                   const Text("\n"),
-                  const Text(" Date: ", style: TextStyle(color: Colors.white60)),
+                  const Text("   Date: ", style: TextStyle(color: Colors.white60)),
                   Text(media.releaseDate, 
                     style: const TextStyle(color: Colors.white))
                 ],
               ),
               Row(
                 children: [
-                  const Text("\n "),
+                  const Text("\n   "),
                   const Icon(Icons.star, color: Colors.yellow, size: 20),
                   Text(" ${media.voteAvarge}",  
                     style: const TextStyle(color: Colors.white))

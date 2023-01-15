@@ -8,6 +8,7 @@ class Media{
   String backdropPath;
   String overview;
   String releaseDate;
+  bool video;
   List<dynamic> genreIds; 
 
   String getPosterUrl() => getMediumPictureUrl(posterPath);
@@ -30,6 +31,7 @@ class Media{
     backdropPath = json["backdrop_path"] ?? "",
     overview = json["overview"],
     releaseDate = json["release_date"],
+    video = json["video"],
     genreIds = json["genre_ids"].toList(); 
 
 }

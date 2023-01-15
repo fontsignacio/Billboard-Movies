@@ -13,6 +13,7 @@ class Top extends StatefulWidget {
 
 class _TopState extends State<Top> {
   final List<Media> _media = [];
+  final ScrollController _controllerOne = ScrollController();
 
   @override
   void initState(){
@@ -29,19 +30,46 @@ class _TopState extends State<Top> {
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
-      body: ListView.builder(
-        itemCount: _media.length,
-        itemBuilder:  (context, index) {
-          return GestureDetector(
-            child: MediaListItem(media: _media[index]),
-            onTap: () {
-              var router = MaterialPageRoute(
-              builder: (context) => MediaOverview(media: _media[index]));
-              Navigator.of(context).push(router);
-            }
-          );
-        }
-      ),
+      body: Stack(
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(12),
+          child: Text("Top Movies",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,
+            color: Colors.white )),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 34),
+          child: SizedBox(
+            height: 250,
+            child: Scrollbar(
+              thumbVisibility: true,
+              controller: _controllerOne,
+              child: ListView.separated(
+                padding: const EdgeInsets.all(10),
+                scrollDirection: Axis.horizontal,
+                
+                controller: _controllerOne,
+                itemCount: _media.length,
+                separatorBuilder: (context, index) {
+                  return const SizedBox(width: 8);
+                },
+                itemBuilder:  (context, index) {
+                  return GestureDetector(
+                    child: MediaListItem(media: _media[index]),
+                    onTap: () {
+                        var router = MaterialPageRoute(
+                        builder: (context) => MediaOverview(media: _media[index]));
+                        Navigator.of(context).push(router);
+                      }
+                    );
+                  }
+                ),
+              )
+            )  
+          ),
+        ]
+      )
     );
   }
 }

@@ -18,9 +18,9 @@ class MediaOverviewTv extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             child: Stack(
               children: <Widget>[
-                FadeInImage.assetNetwork(
-                    placeholder: "assets/images/placeholder.jpg",
-                    image: media.getBackDropUrl(),
+                Image.network(
+                  
+                    media.getBackDropUrl(),
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: 300,
