@@ -14,6 +14,6 @@ void main(){
         labelColor: Colors.white,
       )
     ),
-    home: const HomeMovie(),
+    home: const Home(),
   ));
 }

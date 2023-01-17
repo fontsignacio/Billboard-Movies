@@ -1,22 +1,22 @@
-import 'package:billboard_movies/pages/coming_page.dart';
 import 'package:billboard_movies/pages/popular_page.dart';
+import 'package:billboard_movies/pages/coming_page.dart';
 import 'package:billboard_movies/pages/top_page.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Movies extends StatefulWidget {
+  const Movies({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Movies> createState() => _MoviesState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _MoviesState extends State<Movies> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: const [
+        children: const[
           Popular(),
           Padding(
             padding: EdgeInsets.only(top:260),
@@ -26,8 +26,8 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(top:520),
             child: Top(),
           )
-        ]
-      ),
+        ], 
+      ), 
     );
   }
 }

@@ -1,16 +1,17 @@
+import 'package:billboard_movies/pages/Tv.dart';
 import 'package:billboard_movies/pages/favorites.dart';
 import 'package:billboard_movies/pages/search.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/pages/home_page.dart';
+import 'package:billboard_movies/pages/Movie.dart';
 
-class HomeMovie extends StatefulWidget {
-  const HomeMovie({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key});
 
   @override
-  State<HomeMovie> createState() => _HomeMovieState();
+  State<Home> createState() => _HomeMovieState();
 }
 
-class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMixin{
+class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
   late TabController controller;
 
   @override
@@ -29,7 +30,7 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-          HomePage(),
+          Movies(),
           User(),
           Favorites(),
         ],
@@ -59,7 +60,7 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
               title: const Text('Movies', style: TextStyle(color: Colors.white)),
               onTap: () {
                 var router = MaterialPageRoute(
-                builder: (context) => const HomeMovie());
+                builder: (context) => const Home());
                 Navigator.of(context).push(router);
               },
             ),
@@ -67,9 +68,9 @@ class _HomeMovieState extends State<HomeMovie> with SingleTickerProviderStateMix
               trailing: const Icon(Icons.live_tv, color: Colors.white),
               title: const Text('TV Shows', style: TextStyle(color: Colors.white)),
               onTap: () {
-                /*var router = MaterialPageRoute(
-                builder: (context) => const HomeTv());
-                Navigator.of(context).push(router);*/
+                var router = MaterialPageRoute(
+                builder: (context) => const Tv());
+                Navigator.of(context).push(router);
               },
             ),
             ListTile(

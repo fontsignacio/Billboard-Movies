@@ -1,17 +1,17 @@
+import 'package:billboard_movies/common/http_handler_tv.dart';
 import 'package:billboard_movies/model/media_list_tv.dart';
 import 'package:billboard_movies/model/media_tv_overview.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/common/http_handler.dart';
-import 'package:billboard_movies/model/media.dart';
+import 'package:billboard_movies/model/media_tv.dart';
 
-class Latest extends StatefulWidget {
-  const Latest({super.key});
+class OnTheAir extends StatefulWidget {
+  const OnTheAir({super.key});
 
   @override
-  State<Latest> createState() => _LatestState();
+  State<OnTheAir> createState() => _OnTheAirState();
 }
 
-class _LatestState extends State<Latest> {
+class _OnTheAirState extends State<OnTheAir> {
   final List<Media1> _media = [];
   final ScrollController _controllerOne = ScrollController();
 
@@ -22,7 +22,7 @@ class _LatestState extends State<Latest> {
     loadMovies();
   }
   void loadMovies()async{
-    var tv = await HttpHandler().fetchTvLatest();
+    var tv = await HttpHandlerTv().fetchTvOnTheAir();
     setState(() {
       _media.addAll(tv);
     });
@@ -35,7 +35,7 @@ class _LatestState extends State<Latest> {
       children: [
         const Padding(
           padding: EdgeInsets.all(12),
-          child: Text("Latest Movies",
+          child: Text("Tv On The Air",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,
             color: Colors.white )),
         ),

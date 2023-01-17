@@ -1,6 +1,6 @@
+import 'package:billboard_movies/common/http_handler_tv.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/common/http_handler.dart';
-import 'package:billboard_movies/model/media.dart';
+import 'package:billboard_movies/model/media_tv.dart';
 import 'package:billboard_movies/model/media_list_tv.dart';
 import 'package:billboard_movies/model/media_tv_overview.dart';
 
@@ -22,7 +22,7 @@ class _PopularTvState extends State<PopularTv> {
     loadMovies();
   }
   void loadMovies()async{
-    var tv = await HttpHandler().fetchTv();
+    var tv = await HttpHandlerTv().fetchTv();
     setState(() {
       _media.addAll(tv);
     });

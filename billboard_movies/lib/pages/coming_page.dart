@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/common/http_handler.dart';
-import 'package:billboard_movies/model/media.dart';
+import 'package:billboard_movies/model/media_movie.dart';
 import 'package:billboard_movies/model/media_list_movie.dart';
 import 'package:billboard_movies/model/media_movie_overview.dart';
 

@@ -1,8 +1,8 @@
 import 'package:billboard_movies/model/media_list_tv.dart';
 import 'package:billboard_movies/model/media_tv_overview.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/common/http_handler.dart';
-import 'package:billboard_movies/model/media.dart';
+import 'package:billboard_movies/common/http_handler_tv.dart';
+import 'package:billboard_movies/model/media_tv.dart';
 
 class TopTv extends StatefulWidget {
   const TopTv({super.key});
@@ -22,7 +22,7 @@ final List<Media1> _media = [];
     loadMovies();
   }
   void loadMovies()async{
-    var tv = await HttpHandler().fetchTvTop();
+    var tv = await HttpHandlerTv().fetchTvTop();
     setState(() {
       _media.addAll(tv);
     });
