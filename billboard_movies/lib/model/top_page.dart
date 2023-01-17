@@ -1,41 +1,40 @@
-import 'package:billboard_movies/common/http_handler_tv.dart';
-import 'package:billboard_movies/model/media_list_tv.dart';
-import 'package:billboard_movies/model/media_tv_overview.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/model/media_tv.dart';
+import 'package:billboard_movies/common/http_handler.dart';
+import 'package:billboard_movies/media/media_movie.dart';
+import 'package:billboard_movies/media/media_list_movie.dart';
+import 'package:billboard_movies/media/media_movie_overview.dart';
 
-class OnTheAir extends StatefulWidget {
-  const OnTheAir({super.key});
+class Top extends StatefulWidget {
+  const Top({super.key});
 
   @override
-  State<OnTheAir> createState() => _OnTheAirState();
+  State<Top> createState() => _TopState();
 }
 
-class _OnTheAirState extends State<OnTheAir> {
-  final List<Media1> _media = [];
+class _TopState extends State<Top> {
+  final List<Media> _media = [];
   final ScrollController _controllerOne = ScrollController();
 
-  
   @override
   void initState(){
     super.initState();
     loadMovies();
   }
   void loadMovies()async{
-    var tv = await HttpHandlerTv().fetchTvOnTheAir();
+    var movies = await HttpHandler().fetchTop();
     setState(() {
-      _media.addAll(tv);
+      _media.addAll(movies);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    body: Stack(
+    return Scaffold( 
+      body: Stack(
       children: [
         const Padding(
           padding: EdgeInsets.all(12),
-          child: Text("Tv On The Air",
+          child: Text("Top Movies",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,
             color: Colors.white )),
         ),
@@ -49,6 +48,7 @@ class _OnTheAirState extends State<OnTheAir> {
               child: ListView.separated(
                 padding: const EdgeInsets.all(10),
                 scrollDirection: Axis.horizontal,
+                
                 controller: _controllerOne,
                 itemCount: _media.length,
                 separatorBuilder: (context, index) {
@@ -56,10 +56,10 @@ class _OnTheAirState extends State<OnTheAir> {
                 },
                 itemBuilder:  (context, index) {
                   return GestureDetector(
-                    child: MediaListTv(media: _media[index]),
+                    child: MediaListItem(media: _media[index]),
                     onTap: () {
                         var router = MaterialPageRoute(
-                        builder: (context) => MediaOverviewTv(media: _media[index]));
+                        builder: (context) => MediaOverview(media: _media[index]));
                         Navigator.of(context).push(router);
                       }
                     );
@@ -67,7 +67,7 @@ class _OnTheAirState extends State<OnTheAir> {
                 ),
               )
             )  
-          ),    
+          ),
         ]
       )
     );

@@ -1,8 +1,7 @@
-import 'package:billboard_movies/pages/Tv.dart';
 import 'package:billboard_movies/pages/favorites.dart';
 import 'package:billboard_movies/pages/search.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/pages/Movie.dart';
+import 'package:billboard_movies/pages/HomePage.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -30,7 +29,7 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
       body: TabBarView(
         controller: controller,
         children: const <Widget>[
-          Movies(),
+          HomePage(),
           User(),
           Favorites(),
         ],
@@ -56,8 +55,8 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
               child: Text(''),
             ),
             ListTile(
-              trailing: const Icon(Icons.local_movies, color: Colors.white),
-              title: const Text('Movies', style: TextStyle(color: Colors.white)),
+              trailing: const Icon(Icons.home, color: Colors.white),
+              title: const Text('Home', style: TextStyle(color: Colors.white)),
               onTap: () {
                 var router = MaterialPageRoute(
                 builder: (context) => const Home());
@@ -67,10 +66,10 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
             ListTile(
               trailing: const Icon(Icons.live_tv, color: Colors.white),
               title: const Text('TV Shows', style: TextStyle(color: Colors.white)),
-              onTap: () {
+              onTap: () {/*
                 var router = MaterialPageRoute(
                 builder: (context) => const Tv());
-                Navigator.of(context).push(router);
+                Navigator.of(context).push(router);*/
               },
             ),
             ListTile(

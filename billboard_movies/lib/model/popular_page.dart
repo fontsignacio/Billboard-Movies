@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/common/http_handler.dart';
-import 'package:billboard_movies/model/media_movie.dart';
-import 'package:billboard_movies/model/media_list_movie.dart';
-import 'package:billboard_movies/model/media_movie_overview.dart';
+import 'package:billboard_movies/media/media_movie.dart';
+import 'package:billboard_movies/media/media_list_movie.dart';
+import 'package:billboard_movies/media/media_movie_overview.dart';
 
-
-class Coming extends StatefulWidget {
-  const Coming({super.key});
+class Popular extends StatefulWidget {
+  const Popular({super.key});
 
   @override
-  State<Coming> createState() => _ComingState();
+  State<Popular> createState() => _PopularState();
 }
 
-class _ComingState extends State<Coming> {
+class _PopularState extends State<Popular> {
   final List<Media> _media = [];
   final ScrollController _controllerOne = ScrollController();
 
+  
   @override
   void initState(){
     super.initState();
     loadMovies();
   }
   void loadMovies()async{
-    var movies = await HttpHandler().fetchUpcoming();
+    var movies = await HttpHandler().fetchMovies();
     setState(() {
       _media.addAll(movies);
     });
@@ -30,12 +30,12 @@ class _ComingState extends State<Coming> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(  
-      body: Stack(
+    return Scaffold(
+    body: Stack(
       children: [
         const Padding(
           padding: EdgeInsets.all(12),
-          child: Text("Upcoming Movies",
+          child: Text("Popular Movies",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,
             color: Colors.white )),
         ),
@@ -67,7 +67,7 @@ class _ComingState extends State<Coming> {
                 ),
               )
             )  
-          ),
+          ),    
         ]
       )
     );

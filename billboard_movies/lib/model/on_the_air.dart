@@ -1,18 +1,18 @@
-import 'package:billboard_movies/model/media_list_tv.dart';
-import 'package:billboard_movies/model/media_tv_overview.dart';
-import 'package:flutter/material.dart';
 import 'package:billboard_movies/common/http_handler_tv.dart';
-import 'package:billboard_movies/model/media_tv.dart';
+import 'package:billboard_movies/media/media_list_tv.dart';
+import 'package:billboard_movies/media/media_tv_overview.dart';
+import 'package:flutter/material.dart';
+import 'package:billboard_movies/media/media_tv.dart';
 
-class TopTv extends StatefulWidget {
-  const TopTv({super.key});
+class OnTheAir extends StatefulWidget {
+  const OnTheAir({super.key});
 
   @override
-  State<TopTv> createState() => _TopTvState();
+  State<OnTheAir> createState() => _OnTheAirState();
 }
 
-class _TopTvState extends State<TopTv> {
-final List<Media1> _media = [];
+class _OnTheAirState extends State<OnTheAir> {
+  final List<Media1> _media = [];
   final ScrollController _controllerOne = ScrollController();
 
   
@@ -22,7 +22,7 @@ final List<Media1> _media = [];
     loadMovies();
   }
   void loadMovies()async{
-    var tv = await HttpHandlerTv().fetchTvTop();
+    var tv = await HttpHandlerTv().fetchTvOnTheAir();
     setState(() {
       _media.addAll(tv);
     });
@@ -35,7 +35,7 @@ final List<Media1> _media = [];
       children: [
         const Padding(
           padding: EdgeInsets.all(12),
-          child: Text("Top Tv",
+          child: Text("Tv On The Air",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,
             color: Colors.white )),
         ),

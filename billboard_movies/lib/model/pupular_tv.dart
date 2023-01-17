@@ -1,40 +1,41 @@
+import 'package:billboard_movies/common/http_handler_tv.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/common/http_handler.dart';
-import 'package:billboard_movies/model/media_movie.dart';
-import 'package:billboard_movies/model/media_list_movie.dart';
-import 'package:billboard_movies/model/media_movie_overview.dart';
+import 'package:billboard_movies/media/media_tv.dart';
+import 'package:billboard_movies/media/media_list_tv.dart';
+import 'package:billboard_movies/media/media_tv_overview.dart';
 
-class Top extends StatefulWidget {
-  const Top({super.key});
+class PopularTv extends StatefulWidget {
+  const PopularTv({super.key});
 
   @override
-  State<Top> createState() => _TopState();
+  State<PopularTv> createState() => _PopularTvState();
 }
 
-class _TopState extends State<Top> {
-  final List<Media> _media = [];
+class _PopularTvState extends State<PopularTv> {
+  final List<Media1> _media = [];
   final ScrollController _controllerOne = ScrollController();
 
+  
   @override
   void initState(){
     super.initState();
     loadMovies();
   }
   void loadMovies()async{
-    var movies = await HttpHandler().fetchTop();
+    var tv = await HttpHandlerTv().fetchTv();
     setState(() {
-      _media.addAll(movies);
+      _media.addAll(tv);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
-      body: Stack(
+    return Scaffold(
+    body: Stack(
       children: [
         const Padding(
           padding: EdgeInsets.all(12),
-          child: Text("Top Movies",
+          child: Text("Popular Tv",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,
             color: Colors.white )),
         ),
@@ -48,7 +49,6 @@ class _TopState extends State<Top> {
               child: ListView.separated(
                 padding: const EdgeInsets.all(10),
                 scrollDirection: Axis.horizontal,
-                
                 controller: _controllerOne,
                 itemCount: _media.length,
                 separatorBuilder: (context, index) {
@@ -56,10 +56,10 @@ class _TopState extends State<Top> {
                 },
                 itemBuilder:  (context, index) {
                   return GestureDetector(
-                    child: MediaListItem(media: _media[index]),
+                    child: MediaListTv(media: _media[index]),
                     onTap: () {
                         var router = MaterialPageRoute(
-                        builder: (context) => MediaOverview(media: _media[index]));
+                        builder: (context) => MediaOverviewTv(media: _media[index]));
                         Navigator.of(context).push(router);
                       }
                     );
@@ -67,7 +67,7 @@ class _TopState extends State<Top> {
                 ),
               )
             )  
-          ),
+          ),    
         ]
       )
     );

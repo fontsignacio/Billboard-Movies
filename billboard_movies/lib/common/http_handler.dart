@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:billboard_movies/common/constants_api.dart';
-import 'package:billboard_movies/model/media_movie.dart';
+import 'package:billboard_movies/media/media_movie.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 

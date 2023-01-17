@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/model/media_tv.dart';
+import 'package:billboard_movies/media/media_movie.dart';
 
-class MediaOverviewTv extends StatelessWidget {
-  const MediaOverviewTv ({super.key, required this.media});
-  final Media1 media;
+class MediaOverview extends StatelessWidget {
+  const MediaOverview ({super.key, required this.media});
+  final Media media;
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +155,7 @@ class MediaOverviewTv extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(media.name, 
+                    child: Text(media.title, 
                         style: const TextStyle(
                           fontWeight: FontWeight.
                           bold, fontSize: 30,
@@ -179,8 +179,8 @@ class MediaOverviewTv extends StatelessWidget {
               Row(
                 children: [
                   const Text("\n"),
-                  const Text("   First Date: ", style: TextStyle(color: Colors.white60)),
-                  Text(media.firstDate, 
+                  const Text("   Date: ", style: TextStyle(color: Colors.white60)),
+                  Text(media.releaseDate, 
                     style: const TextStyle(color: Colors.white))
                 ],
               ),

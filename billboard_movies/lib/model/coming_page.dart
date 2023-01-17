@@ -1,41 +1,41 @@
-import 'package:billboard_movies/common/http_handler_tv.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/model/media_tv.dart';
-import 'package:billboard_movies/model/media_list_tv.dart';
-import 'package:billboard_movies/model/media_tv_overview.dart';
+import 'package:billboard_movies/common/http_handler.dart';
+import 'package:billboard_movies/media/media_movie.dart';
+import 'package:billboard_movies/media/media_list_movie.dart';
+import 'package:billboard_movies/media/media_movie_overview.dart';
 
-class PopularTv extends StatefulWidget {
-  const PopularTv({super.key});
+
+class Coming extends StatefulWidget {
+  const Coming({super.key});
 
   @override
-  State<PopularTv> createState() => _PopularTvState();
+  State<Coming> createState() => _ComingState();
 }
 
-class _PopularTvState extends State<PopularTv> {
-  final List<Media1> _media = [];
+class _ComingState extends State<Coming> {
+  final List<Media> _media = [];
   final ScrollController _controllerOne = ScrollController();
 
-  
   @override
   void initState(){
     super.initState();
     loadMovies();
   }
   void loadMovies()async{
-    var tv = await HttpHandlerTv().fetchTv();
+    var movies = await HttpHandler().fetchUpcoming();
     setState(() {
-      _media.addAll(tv);
+      _media.addAll(movies);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    body: Stack(
+    return Scaffold(  
+      body: Stack(
       children: [
         const Padding(
           padding: EdgeInsets.all(12),
-          child: Text("Popular Tv",
+          child: Text("Upcoming Movies",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,
             color: Colors.white )),
         ),
@@ -56,10 +56,10 @@ class _PopularTvState extends State<PopularTv> {
                 },
                 itemBuilder:  (context, index) {
                   return GestureDetector(
-                    child: MediaListTv(media: _media[index]),
+                    child: MediaListItem(media: _media[index]),
                     onTap: () {
                         var router = MaterialPageRoute(
-                        builder: (context) => MediaOverviewTv(media: _media[index]));
+                        builder: (context) => MediaOverview(media: _media[index]));
                         Navigator.of(context).push(router);
                       }
                     );
@@ -67,7 +67,7 @@ class _PopularTvState extends State<PopularTv> {
                 ),
               )
             )  
-          ),    
+          ),
         ]
       )
     );
