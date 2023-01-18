@@ -80,27 +80,10 @@ class MediaOverviewTv extends StatelessWidget {
                     ), 
                   ], 
                 ), 
-              ),/*
+              ), 
               Container(
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.only(left: 30, top: 390),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xff292b37),
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color(0xff292b37).withOpacity(0.5),
-                      spreadRadius: 1,
-                      blurRadius: 4 
-                    )
-                  ],                       
-                ),
-                child: const Icon(Icons.add, color: Colors.white, size: 35),  
-              ),*/ 
-              Container(
-                padding: const EdgeInsets.all(15),
-                margin: const EdgeInsets.only(left: 30, top: 390),
-                //margin: const EdgeInsets.only(left: 150, top: 390),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: const Color(0xff292b37),
@@ -117,7 +100,6 @@ class MediaOverviewTv extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(15),
                       margin: const EdgeInsets.only(left: 150, top: 390),
-                      //margin: const EdgeInsets.only(left: 270, top: 390),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: const Color(0xff292b37),
@@ -134,7 +116,6 @@ class MediaOverviewTv extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(15),
                       margin: const EdgeInsets.only(left: 270, top: 390),
-                      //margin: const EdgeInsets.only(left: 390, top: 390),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: const Color(0xff292b37),
@@ -160,6 +141,7 @@ class MediaOverviewTv extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(media.name, 
                         style: const TextStyle(
+                          overflow: TextOverflow.ellipsis,
                           fontWeight: FontWeight.
                           bold, fontSize: 30,
                           color: Colors.white

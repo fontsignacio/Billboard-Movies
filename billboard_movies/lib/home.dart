@@ -64,24 +64,6 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
               },
             ),
             ListTile(
-              trailing: const Icon(Icons.live_tv, color: Colors.white),
-              title: const Text('TV Shows', style: TextStyle(color: Colors.white)),
-              onTap: () {/*
-                var router = MaterialPageRoute(
-                builder: (context) => const Tv());
-                Navigator.of(context).push(router);*/
-              },
-            ),
-            ListTile(
-              trailing: const Icon(Icons.favorite, color: Colors.white),
-              title: const Text('Favorites', style: TextStyle(color: Colors.white)),
-              onTap: () {
-                var router = MaterialPageRoute(
-                builder: (context) => const Favorites());
-                Navigator.of(context).push(router);
-              },
-            ),
-            ListTile(
               trailing: const Icon(Icons.close, color: Colors.white),
               title: const Text('Close', style: TextStyle(color: Colors.white)),
               onTap: () => Navigator.of(context).pop(),

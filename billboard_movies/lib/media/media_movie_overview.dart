@@ -1,38 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/media/media_movie.dart';
 
-/*
-class Build extends StatefulWidget {
-  const Build({super.key, required this.media});
-  final Media media;
-
-  @override
-  State<Build> createState() => _BuildState();
-}
-
-class _BuildState extends State<Build>{
-  final saved = <Media>{};
-
-  @override
-  Widget build(BuildContext context) {
-    final bool alreadySaved = saved.contains(media);
-    return ListTile( 
-    trailing: Icon(
-      alreadySaved ? 
-      Icons.favorite: Icons.favorite_border, color: Colors.white,size: 35,),  
-    
-    onTap: () {
-      setState(() {
-        if(alreadySaved){
-          saved.remove(media);
-        }else{
-          saved.add(media);   
-        }       
-      });
-    });  
-  }
-}*/
-
 class MediaOverview extends StatelessWidget {
   const MediaOverview({super.key, required this.media});
   final Media media;
@@ -116,7 +84,6 @@ class MediaOverview extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.only(left: 30, top: 390),
-                //margin: const EdgeInsets.only(left: 150, top: 390),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: const Color(0xff292b37),
@@ -133,7 +100,6 @@ class MediaOverview extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(15),
                       margin: const EdgeInsets.only(left: 150, top: 390),
-                      //margin: const EdgeInsets.only(left: 270, top: 390),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: const Color(0xff292b37),
@@ -150,7 +116,6 @@ class MediaOverview extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(15),
                       margin: const EdgeInsets.only(left: 270, top: 390),
-                      //margin: const EdgeInsets.only(left: 390, top: 390),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: const Color(0xff292b37),
@@ -176,6 +141,7 @@ class MediaOverview extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(media.title, 
                         style: const TextStyle(
+                          overflow: TextOverflow.ellipsis,
                           fontWeight: FontWeight.
                           bold, fontSize: 30,
                           color: Colors.white

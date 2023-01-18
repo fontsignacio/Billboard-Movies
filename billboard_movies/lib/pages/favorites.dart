@@ -13,7 +13,7 @@ class Favorites extends StatefulWidget {
 
 class _FavoritesState extends State<Favorites> {
   final List<Media> _suggestions = [];
-  final List<Media> _media = [];
+  //final List<Media> _media = [];
   int count = 0;
 
   @override

@@ -40,6 +40,7 @@ class MediaListSearch extends StatelessWidget {
                   children: <Widget>[
                     Text(media.title, 
                     style: const TextStyle(fontWeight: FontWeight.bold,
+                    overflow: TextOverflow.ellipsis,
                     color: Colors.white
                     )
                   ),
