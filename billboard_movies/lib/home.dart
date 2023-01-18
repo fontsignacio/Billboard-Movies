@@ -30,7 +30,7 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
         controller: controller,
         children: const <Widget>[
           HomePage(),
-          User(),
+          Search(),
           Favorites(),
         ],
       ),

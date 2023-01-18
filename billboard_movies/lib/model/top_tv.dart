@@ -12,7 +12,7 @@ class TopTv extends StatefulWidget {
 }
 
 class _TopTvState extends State<TopTv> {
-final List<Media1> _media = [];
+  final List<Media1> _media = [];
   final ScrollController _controllerOne = ScrollController();
 
   

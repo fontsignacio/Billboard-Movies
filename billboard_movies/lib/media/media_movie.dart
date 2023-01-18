@@ -32,6 +32,7 @@ class Media{
     overview = json["overview"],
     releaseDate = json["release_date"],
     video = json["video"],
-    genreIds = json["genre_ids"].toList(); 
+    genreIds = json["genre_ids"].toList();
+
 
 }

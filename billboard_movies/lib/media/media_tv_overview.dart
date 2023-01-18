@@ -80,7 +80,7 @@ class MediaOverviewTv extends StatelessWidget {
                     ), 
                   ], 
                 ), 
-              ),
+              ),/*
               Container(
                 padding: const EdgeInsets.all(15),
                 margin: const EdgeInsets.only(left: 30, top: 390),
@@ -96,10 +96,11 @@ class MediaOverviewTv extends StatelessWidget {
                   ],                       
                 ),
                 child: const Icon(Icons.add, color: Colors.white, size: 35),  
-              ), 
+              ),*/ 
               Container(
                 padding: const EdgeInsets.all(15),
-                margin: const EdgeInsets.only(left: 150, top: 390),
+                margin: const EdgeInsets.only(left: 30, top: 390),
+                //margin: const EdgeInsets.only(left: 150, top: 390),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: const Color(0xff292b37),
@@ -115,7 +116,8 @@ class MediaOverviewTv extends StatelessWidget {
               ), 
                     Container(
                       padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.only(left: 270, top: 390),
+                      margin: const EdgeInsets.only(left: 150, top: 390),
+                      //margin: const EdgeInsets.only(left: 270, top: 390),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: const Color(0xff292b37),
@@ -131,7 +133,8 @@ class MediaOverviewTv extends StatelessWidget {
                     ),
                     Container(
                       padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.only(left: 390, top: 390),
+                      margin: const EdgeInsets.only(left: 270, top: 390),
+                      //margin: const EdgeInsets.only(left: 390, top: 390),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: const Color(0xff292b37),
