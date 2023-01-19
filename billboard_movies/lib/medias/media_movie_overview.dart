@@ -1,3 +1,4 @@
+import 'package:billboard_movies/models/video.dart';
 import 'package:billboard_movies/pages/favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/medias/media_movie.dart';
@@ -75,7 +76,7 @@ class MediaOverview extends StatelessWidget {
                       ),
                       onTap: () {
                         var router = MaterialPageRoute(
-                        builder: (context) => Image.network(media.getBackDropUrl()));
+                        builder: (context) => Video(id: media.id,));
                         Navigator.of(context).push(router);
                       },
                     ), 
