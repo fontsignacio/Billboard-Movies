@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/media/media_tv.dart';
+import 'package:billboard_movies/medias/media_tv.dart';
 
 class MediaListTv extends StatelessWidget {
   const MediaListTv({super.key, required this.media});

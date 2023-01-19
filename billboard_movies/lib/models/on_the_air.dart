@@ -1,8 +1,8 @@
-import 'package:billboard_movies/common/http_handler_tv.dart';
-import 'package:billboard_movies/media/media_list_tv.dart';
-import 'package:billboard_movies/media/media_tv_overview.dart';
+import 'package:billboard_movies/api/http_handler_tv.dart';
+import 'package:billboard_movies/medias/media_list_tv.dart';
+import 'package:billboard_movies/medias/media_tv_overview.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/media/media_tv.dart';
+import 'package:billboard_movies/medias/media_tv.dart';
 
 class OnTheAir extends StatefulWidget {
   const OnTheAir({super.key});

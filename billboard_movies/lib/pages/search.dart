@@ -1,8 +1,8 @@
-import 'package:billboard_movies/common/http_handler.dart';
-import 'package:billboard_movies/media/media_list_search.dart';
-import 'package:billboard_movies/media/media_movie_overview.dart';
+import 'package:billboard_movies/api/http_handler.dart';
+import 'package:billboard_movies/medias/media_list_search.dart';
+import 'package:billboard_movies/medias/media_movie_overview.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/media/media_movie.dart';
+import 'package:billboard_movies/medias/media_movie.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});

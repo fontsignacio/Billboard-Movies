@@ -1,10 +1,10 @@
 // ignore_for_file: file_names
-import 'package:billboard_movies/model/popular_page.dart';
-import 'package:billboard_movies/model/pupular_tv.dart';
-import 'package:billboard_movies/model/on_the_air.dart';
-import 'package:billboard_movies/model/top_tv.dart';
-import 'package:billboard_movies/model/coming_page.dart';
-import 'package:billboard_movies/model/top_page.dart';
+import 'package:billboard_movies/models/popular_page.dart';
+import 'package:billboard_movies/models/pupular_tv.dart';
+import 'package:billboard_movies/models/on_the_air.dart';
+import 'package:billboard_movies/models/top_tv.dart';
+import 'package:billboard_movies/models/coming_page.dart';
+import 'package:billboard_movies/models/top_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

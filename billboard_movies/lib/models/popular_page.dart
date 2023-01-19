@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/common/http_handler.dart';
-import 'package:billboard_movies/media/media_movie.dart';
-import 'package:billboard_movies/media/media_list_movie.dart';
-import 'package:billboard_movies/media/media_movie_overview.dart';
+import 'package:billboard_movies/api/http_handler.dart';
+import 'package:billboard_movies/medias/media_movie.dart';
+import 'package:billboard_movies/medias/media_list_movie.dart';
+import 'package:billboard_movies/medias/media_movie_overview.dart';
 
 class Popular extends StatefulWidget {
   const Popular({super.key});

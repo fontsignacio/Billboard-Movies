@@ -1,4 +1,4 @@
-import 'package:billboard_movies/common/util.dart';
+import 'package:billboard_movies/api/util.dart';
 
 class Media{
   int id;

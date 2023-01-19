@@ -1,5 +1,6 @@
+import 'package:billboard_movies/pages/favorites.dart';
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/media/media_movie.dart';
+import 'package:billboard_movies/medias/media_movie.dart';
 
 class MediaOverview extends StatelessWidget {
   const MediaOverview({super.key, required this.media});
@@ -94,7 +95,8 @@ class MediaOverview extends StatelessWidget {
                       blurRadius: 4 
                     )
                   ],                       
-                ),
+                ),   
+                //child: const  BuildFavorite(),
                 child: const Icon(Icons.favorite_border, color: Colors.white, size: 35),  
               ), 
                     Container(

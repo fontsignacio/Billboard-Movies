@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/media/media_movie.dart';
+import 'package:billboard_movies/medias/media_movie.dart';
 
 class MediaListSearch extends StatelessWidget {
   const MediaListSearch ({super.key, required this.media});
