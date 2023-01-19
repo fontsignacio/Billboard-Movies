@@ -1,3 +1,4 @@
+import 'package:billboard_movies/medias/media_tv.dart';
 import 'package:billboard_movies/models/video.dart';
 import 'package:billboard_movies/pages/favorites.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,7 @@ class MediaOverview extends StatelessWidget {
                       ),
                       onTap: () {
                         var router = MaterialPageRoute(
-                        builder: (context) => Video(id: media.id,));
+                        builder: (context) => const Video());
                         Navigator.of(context).push(router);
                       },
                     ), 
@@ -97,8 +98,8 @@ class MediaOverview extends StatelessWidget {
                     )
                   ],                       
                 ),   
-                //child: const  BuildFavorite(),
-                child: const Icon(Icons.favorite_border, color: Colors.white, size: 35),  
+                child: BuildFavorite(media: media),
+                //child: const Icon(Icons.favorite_border, color: Colors.white, size: 35),  
               ), 
                     Container(
                       padding: const EdgeInsets.all(15),

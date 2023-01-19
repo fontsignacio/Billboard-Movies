@@ -1,97 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:billboard_movies/api/http_handler.dart';
 import 'package:billboard_movies/medias/media_movie.dart';
 import 'package:billboard_movies/medias/media_list_movie.dart';
 import 'package:billboard_movies/medias/media_movie_overview.dart';
  
-
-
-/*
-class FavoriteMoviesScreen extends StatefulWidget {
-  @override
-  _FavoriteMoviesScreenState createState() => _FavoriteMoviesScreenState();
-}
-
-class _FavoriteMoviesScreenState extends State<FavoriteMoviesScreen> {
-  List<Movie> movieList;
-  int count = 0;
-  DatabaseController databaseController = DatabaseController();
-  @override
-  void initState() {
-    super.initState();
-    setData();
-  }
-
-  Future<void> setData() async {
-    movieList = await databaseController.getMovieList();
-    if (mounted) {
-      setState(() {
-        count = movieList.length;
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return body();
-  }
-
-  Future<void> getDetail(Movie movie) async {
-    bool fav = await databaseController.contain(movie.id);
-    Movie exploreMovie;
-    if (movie.posterPath == null) {
-      exploreMovie = Movie(movie.id, movie.title, movie.genre, fav);
-    } else {
-      exploreMovie =
-          Movie(movie.id, movie.title, movie.genre, fav, movie.posterPath);
-    }
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => MovieDetailScreen(exploreMovie),
-        ));
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
-  Container body() {
-    return Container(
-      child: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-              onTap: () {
-                getDetail(movieList[index]);
-              },
-              leading: movieList[index].posterPath == null
-                  ? Icon(Icons.broken_image)
-                  : Image.network(movieList[index].posterPath,
-                      width: 50.0, height: 50.0),
-              title: Text(movieList[index].title),
-              subtitle: Text(
-                movieList[index].genre,
-                overflow: TextOverflow.ellipsis,
-              ),
-              trailing: GestureDetector(
-                  child: Icon(Icons.delete, color: Colors.red),
-                  onTap: () {
-                    databaseController.deleteMovie(movieList[index].id);
-                    movieList[index].favorite = false;
-                    if (mounted) {
-                      setState(() {
-                        setData();
-                      });
-                    }
-                  }));
-        },
-        itemCount: count,
-      ),
-    );
-  }
-}
-*/
+ List<Media> _suggestions = [];
 
 class Favorites extends StatefulWidget {
   const Favorites({super.key});
@@ -101,21 +13,6 @@ class Favorites extends StatefulWidget {
 }
 
 class _FavoritesState extends State<Favorites> {
-  final List<Media> _suggestions = [];
-
-  @override
-  void initState(){
-    super.initState();
-    loadMovies();
-  }
-  
-  void loadMovies()async{
-    var movie = await HttpHandler().fetchMovies();
-    setState(() {
-      _suggestions.addAll(movie);
-    });
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -155,7 +52,6 @@ class _FavoritesState extends State<Favorites> {
   }
 }
 
-/*
 
 class BuildFavorite extends StatefulWidget {
   const BuildFavorite({super.key, required this.media});
@@ -166,49 +62,32 @@ class BuildFavorite extends StatefulWidget {
 }
 
 class BuildFavoriteState extends State<BuildFavorite> {
-  //final List<Media> _media = [];
-  List<Media> _suggestions = [];
+ // final List<Media> _media = [];
 
-  @override
-  void initState(){
-    super.initState();
-    loadMovies();
-  }
-  
-  void loadMovies()async{
-    setState(() {
-      _suggestions.add(media);
-    });
-  }
-  
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _suggestions.length,
-      itemBuilder: (context, index){
-        return buildRow(_suggestions[index]);  
-      }
-    );
+    return buildRow(widget.media); 
   }
 
   
-Widget buildRow(Media media) {
-  final bool alreadySaved = _media.contains(media); 
-  return GestureDetector(
-    child: Icon(
-      alreadySaved ? 
-      Icons.favorite : Icons.favorite_border,
-      color: Colors.white,
-      size: 35),  
-    
-    onTap: () {
-      setState(() {
-        if(alreadySaved){
-          _media.remove(media);
-        }else{
-          _media.add(media);   
-        }       
-      });
-    });   
+  Widget buildRow(Media media) {
+    final bool alreadySaved = _suggestions.contains(media); 
+    return GestureDetector(
+      child: Icon(
+        alreadySaved ? 
+        Icons.favorite : Icons.favorite_border,
+        color: Colors.white,
+        size: 35),  
+      
+      onTap: () {
+        setState(() {
+          if(alreadySaved){
+            _suggestions.remove(media);
+          }else{
+            _suggestions.add(media);   
+          }       
+        });
+      }
+    );   
   }
-}*/
+}

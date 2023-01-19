@@ -48,6 +48,7 @@ class HttpHandlerTv{
     return getJson(uri).then((data) => 
       data['results'].map<Media1>((item) => Media1(item)).toList()
     );
+    
   }
 
 }

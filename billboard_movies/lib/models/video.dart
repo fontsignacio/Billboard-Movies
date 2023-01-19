@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class Video extends StatefulWidget {
-  const Video({Key? key, required this.id}) : super(key: key);
-  final int id;
+  const Video({Key? key}) : super(key: key);
 
   @override
   VideoState createState() => VideoState();
@@ -16,7 +15,7 @@ class VideoState extends State<Video> {
   void initState() {
     super.initState();
     _controller = YoutubePlayerController(
-      initialVideoId: widget.id.toString(), //'Tb9k9_Bo-G4',// https://www.youtube.com/watch?v=Tb9k9_Bo-G4
+      initialVideoId: 'dQw4w9WgXcQ', // https://www.youtube.com/watch?v=Tb9k9_Bo-G4
       flags: const YoutubePlayerFlags(
         autoPlay: false,
         mute: true,

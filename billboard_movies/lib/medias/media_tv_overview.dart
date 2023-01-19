@@ -75,7 +75,7 @@ class MediaOverviewTv extends StatelessWidget {
                       ),
                       onTap: () {
                         var router = MaterialPageRoute(
-                        builder: (context) => Video(id: media.id));
+                        builder: (context) => const Video());
                         Navigator.of(context).push(router);
                       },
                     ), 
