@@ -44,4 +44,4 @@ app.*.map.json
 /android/app/release
 
 #Proyect
-/lib/api/constants_api.dart
+/lib/api/constant_api.dart

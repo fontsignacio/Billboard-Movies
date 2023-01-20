@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:billboard_movies/api/constants_api.dart';
+import 'package:billboard_movies/api/constant_api.dart';
 import 'package:billboard_movies/medias/media_tv.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
