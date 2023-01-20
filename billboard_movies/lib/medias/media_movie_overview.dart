@@ -1,4 +1,3 @@
-import 'package:billboard_movies/medias/media_tv.dart';
 import 'package:billboard_movies/models/video.dart';
 import 'package:billboard_movies/pages/favorites.dart';
 import 'package:flutter/material.dart';

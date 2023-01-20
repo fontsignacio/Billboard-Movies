@@ -24,7 +24,25 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
     return Scaffold(
       appBar: AppBar(
         title: const Text("Billboard Movies"),
+        actions: [
+          const Padding(
+            padding: EdgeInsets.only(right: 15),
+            child: Icon(Icons.notifications, size: 25 ,)
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: CircleAvatar(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(7), 
+                child: Image.network(
+                  "https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000",
+                ),
+              ),
+            )
+          ),
+        ],
       ),
+
 
       body: TabBarView(
         controller: controller,
@@ -40,19 +58,22 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
         child: ListView(
           padding: const EdgeInsets.all(10),
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
-                boxShadow: [BoxShadow(
-                  color: Colors.white,
-                  spreadRadius: 1,
-                  blurRadius: 8 
-                )],
-                image: DecorationImage(
+                borderRadius: BorderRadius.circular(10), 
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.white,
+                    spreadRadius: 1,
+                    blurRadius: 8 
+                  )
+                ],
+                image: const DecorationImage(           
                   image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3oVyZG_nC0IDmkAl_dggPmK64ye3piV7HPrA1MZC6lX3UQ0Ui6-aMloFGljFXk1bcByg&usqp=CAU'),
                   fit: BoxFit.cover,
                 ),
               ),
-              child: Text(''),
+              child: const Text(''),
             ),
             ListTile(
               trailing: const Icon(Icons.home, color: Colors.white),
@@ -62,6 +83,25 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
                 builder: (context) => const Home());
                 Navigator.of(context).push(router);
               },
+            ),
+            ListTile(
+              trailing: const Icon(Icons.category, color: Colors.white),
+              title: const Text('Category', style: TextStyle(color: Colors.white)),
+              onTap: () {
+                var router = MaterialPageRoute(
+                builder: (context) => const Home());
+                Navigator.of(context).push(router);
+              },
+            ),
+            ListTile(
+              trailing: const Icon(Icons.feedback, color: Colors.white),
+              title: const Text('Send feedback', style: TextStyle(color: Colors.white)),
+              onTap: () {},
+            ),
+            ListTile(
+              trailing: const Icon(Icons.help, color: Colors.white),
+              title: const Text('Help', style: TextStyle(color: Colors.white)),
+              onTap: () {},
             ),
             ListTile(
               trailing: const Icon(Icons.close, color: Colors.white),

@@ -3,7 +3,7 @@ import 'package:billboard_movies/medias/media_movie.dart';
 import 'package:billboard_movies/medias/media_list_movie.dart';
 import 'package:billboard_movies/medias/media_movie_overview.dart';
  
- List<Media> _suggestions = [];
+List<Media> _suggestions = [];
 
 class Favorites extends StatefulWidget {
   const Favorites({super.key});
@@ -62,7 +62,6 @@ class BuildFavorite extends StatefulWidget {
 }
 
 class BuildFavoriteState extends State<BuildFavorite> {
- // final List<Media> _media = [];
 
   @override
   Widget build(BuildContext context) {
