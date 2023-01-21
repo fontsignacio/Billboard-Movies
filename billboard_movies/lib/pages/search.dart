@@ -98,7 +98,7 @@ class _SearchState extends State<Search> {
               style: const TextStyle(color: Colors.white),
               decoration: const InputDecoration(
                 border: InputBorder.none,
-                hintText: "Search your Favorite Movie",
+                hintText: "Search your favorite Movie",
                 hintStyle: TextStyle(color: Colors.white54)
               ),
               onChanged: (String text) {

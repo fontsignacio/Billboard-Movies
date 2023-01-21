@@ -26,6 +26,28 @@ Map<int,String> _genreMap = {
   37: 'Western',  
 };
 
+List<String> genre = [
+      'Action',
+      'Adventure',
+      'Animation',
+      'Comedy',
+      'Crime',
+      'Documentary',
+      'Drama',
+      'Family',
+      'Fantasy',
+      'History',
+      'Horror',
+      'Music',
+      'Mystery',
+      'Romance',
+      'Science Fiction',
+      'TV Movie',
+      'Thriller',
+      'War',
+      'Western',  
+];
+
 List<String?> generesToList(List<dynamic> genreIds) =>
 genreIds.map((id) => _genreMap[id]).toList();
 

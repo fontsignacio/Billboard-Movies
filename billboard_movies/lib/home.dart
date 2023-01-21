@@ -1,3 +1,4 @@
+import 'package:billboard_movies/pages/category.dart';
 import 'package:billboard_movies/pages/favorites.dart';
 import 'package:billboard_movies/pages/search.dart';
 import 'package:flutter/material.dart';
@@ -29,17 +30,22 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
             padding: EdgeInsets.only(right: 15),
             child: Icon(Icons.notifications, size: 25 ,)
           ),
-          Padding(
+          GestureDetector(
+            child: Padding(
             padding: const EdgeInsets.only(right: 10),
-            child: CircleAvatar(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(7), 
-                child: Image.network(
-                  "https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000",
+              child: CircleAvatar(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(7), 
+                  child: Image.network(
+                    "https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000",
+                  ),
                 ),
-              ),
-            )
-          ),
+              )
+            ),
+            onTap: () {
+              
+            },
+          )
         ],
       ),
 
@@ -89,7 +95,7 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
               title: const Text('Category', style: TextStyle(color: Colors.white)),
               onTap: () {
                 var router = MaterialPageRoute(
-                builder: (context) => const Home());
+                builder: (context) => const Category());
                 Navigator.of(context).push(router);
               },
             ),
