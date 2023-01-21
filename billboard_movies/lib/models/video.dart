@@ -15,9 +15,9 @@ class VideoState extends State<Video> {
   void initState() {
     super.initState();
     _controller = YoutubePlayerController(
-      initialVideoId: 'dQw4w9WgXcQ', // https://www.youtube.com/watch?v=Tb9k9_Bo-G4
+      initialVideoId: 'Tb9k9_Bo-G4', // https://www.youtube.com/watch?v=Tb9k9_Bo-G4
       flags: const YoutubePlayerFlags(
-        autoPlay: false,
+        autoPlay: true,
         mute: true,
         isLive: false,
       ),

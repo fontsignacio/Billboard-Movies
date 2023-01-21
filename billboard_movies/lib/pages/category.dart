@@ -17,7 +17,8 @@ class Category extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.all(12),
           child: Text("Categories",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,
+            style: TextStyle(fontWeight: FontWeight.bold, 
+            fontSize: 25,
             color: Colors.white )),
         ),
         Padding(

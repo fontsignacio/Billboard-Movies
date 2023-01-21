@@ -22,7 +22,8 @@ class _FavoritesState extends State<Favorites> {
         const Padding(
           padding: EdgeInsets.all(12),
           child: Text("Favorites",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,
+            style: TextStyle(fontWeight: FontWeight.bold, 
+            fontSize: 20,
             color: Colors.white )),
         ),
         Container(

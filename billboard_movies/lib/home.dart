@@ -26,25 +26,30 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
       appBar: AppBar(
         title: const Text("Billboard Movies"),
         actions: [
-          const Padding(
-            padding: EdgeInsets.only(right: 15),
-            child: Icon(Icons.notifications, size: 25 ,)
+          Padding(
+            padding: const EdgeInsets.only(right: 15),
+            child: PopupMenuButton <MenuItem> (
+              iconSize: 30,
+              icon: const Icon(Icons.connected_tv),
+              itemBuilder: (context) => [             
+              ],
+            )
           ),
           Padding(      
             padding: const EdgeInsets.only(right: 10),
             child: PopupMenuButton <MenuItem> (
-            iconSize: 40,
-            icon: CircleAvatar(
-              radius: 50,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(7), 
-              child: Image.network(
-                fit: BoxFit.cover,
-                "https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000",
+              iconSize: 40,
+              color: const Color(0xff292b37),
+              icon: CircleAvatar(
+                radius: 50,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(7), 
+                  child: Image.network(
+                    fit: BoxFit.cover,
+                    "https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000",
+                  ),
+                ),
               ),
-            ),
-          ),
-              color: const Color(0xff0f111d),
               itemBuilder: (context) =>  [
                 PopupMenuItem(
                   child: Stack(
@@ -62,7 +67,7 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
                       ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 140),
+                        padding: EdgeInsets.only(top: 140, left: 20),
                         child: Text("fontsignacio", 
                           style: TextStyle(
                             color: Colors.white
@@ -70,34 +75,64 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
                         ),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 160),
+                        padding: EdgeInsets.only(top: 160, left: 20),
                         child: Text("View profile",
                           style: TextStyle(
                             fontSize: 13,
                             color: Colors.white54
                           )
                         )
-                      )
+                      ),
                     ],
                   )
                 ),
-                const PopupMenuItem(
-                  child: Text("Edit Profile",
-                  style: TextStyle(
-                    color: Colors.white
-                  ),),
+                PopupMenuItem(
+                  child: Row(
+                    children: const [
+                      Icon(Icons.notifications, size: 20,),
+                      Text("    Notifications",
+                        style: TextStyle(
+                          color: Colors.white
+                        )
+                      ),
+                    ],
+                  )
                 ),
-                const PopupMenuItem(
-                  child: Text("Settings",
-                  style: TextStyle(
-                    color: Colors.white
-                  ),),
+                PopupMenuItem(
+                  child: Row(
+                    children: const [
+                      Icon(Icons.person_pin_outlined, size: 20,),
+                      Text("    Edit Profile",
+                        style: TextStyle(
+                          color: Colors.white
+                        )
+                      ),
+                    ],
+                  )
                 ),
-                const PopupMenuItem(
-                  child: Text("Logout",
-                  style: TextStyle(
-                    color: Colors.white
-                  ),),
+                PopupMenuItem(
+                  child: Row(
+                    children: const [
+                      Icon(Icons.settings, size: 20,),
+                      Text("    Settings",
+                        style: TextStyle(
+                          color: Colors.white
+                        )
+                      ),
+                    ],
+                  )
+                ),
+                PopupMenuItem(
+                  child: Row(
+                    children: const [
+                      Icon(Icons.logout, size: 20,),
+                      Text("    Logout",
+                        style: TextStyle(
+                          color: Colors.white
+                        )
+                      ),
+                    ],
+                  )
                 ),
               ]  
             )
