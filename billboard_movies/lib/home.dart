@@ -30,21 +30,77 @@ class _HomeMovieState extends State<Home> with SingleTickerProviderStateMixin{
             padding: EdgeInsets.only(right: 15),
             child: Icon(Icons.notifications, size: 25 ,)
           ),
-          GestureDetector(
-            child: Padding(
+          Padding(      
             padding: const EdgeInsets.only(right: 10),
-              child: CircleAvatar(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(7), 
-                  child: Image.network(
-                    "https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000",
-                  ),
-                ),
-              )
+            child: PopupMenuButton <MenuItem> (
+            iconSize: 40,
+            icon: CircleAvatar(
+              radius: 50,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(7), 
+              child: Image.network(
+                fit: BoxFit.cover,
+                "https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000",
+              ),
             ),
-            onTap: () {
-              
-            },
+          ),
+              color: const Color(0xff0f111d),
+              itemBuilder: (context) =>  [
+                PopupMenuItem(
+                  child: Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 10),                          
+                        child: CircleAvatar(  
+                        radius: 60,                
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100), 
+                          child: Image.network(
+                            "https://i.seadn.io/gae/b91FFh2EPsExNTHHqECbEQsqDSgaBeOxYWIZfNeYdXfmBOIFPpbyB2VphB_6m_g5iu_ACtgA11X-64TsqWUtdv5x9fFzco4N7OzFYio?auto=format&w=1000",
+                          ),
+                        ),
+                      ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 140),
+                        child: Text("fontsignacio", 
+                          style: TextStyle(
+                            color: Colors.white
+                          )
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 160),
+                        child: Text("View profile",
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.white54
+                          )
+                        )
+                      )
+                    ],
+                  )
+                ),
+                const PopupMenuItem(
+                  child: Text("Edit Profile",
+                  style: TextStyle(
+                    color: Colors.white
+                  ),),
+                ),
+                const PopupMenuItem(
+                  child: Text("Settings",
+                  style: TextStyle(
+                    color: Colors.white
+                  ),),
+                ),
+                const PopupMenuItem(
+                  child: Text("Logout",
+                  style: TextStyle(
+                    color: Colors.white
+                  ),),
+                ),
+              ]  
+            )
           )
         ],
       ),
