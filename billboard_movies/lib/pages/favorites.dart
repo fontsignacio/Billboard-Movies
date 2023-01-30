@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:billboard_movies/medias/media_movie.dart';
 import 'package:billboard_movies/medias/media_list_movie.dart';
 import 'package:billboard_movies/medias/media_movie_overview.dart';
+import 'package:shared_preferences/shared_preferences.dart';
  
+/*
+localStorage.setItem("favoritos", [""])
+
+localStorage.getItem("favoritos")
+*/ 
+
 List<Media> _suggestions = [];
 
 class Favorites extends StatefulWidget {
@@ -64,12 +71,12 @@ class BuildFavorite extends StatefulWidget {
 
 class BuildFavoriteState extends State<BuildFavorite> {
 
+
   @override
   Widget build(BuildContext context) {
     return buildRow(widget.media); 
   }
 
-  
   Widget buildRow(Media media) {
     final bool alreadySaved = _suggestions.contains(media); 
     return GestureDetector(
@@ -80,7 +87,7 @@ class BuildFavoriteState extends State<BuildFavorite> {
         size: 35),  
       
       onTap: () {
-        setState(() {
+        setState((){
           if(alreadySaved){
             _suggestions.remove(media);
           }else{

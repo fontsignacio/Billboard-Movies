@@ -1,7 +1,7 @@
-import 'package:billboard_movies/models/video.dart';
 import 'package:billboard_movies/pages/favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:billboard_movies/medias/media_movie.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class MediaOverview extends StatelessWidget {
   const MediaOverview({super.key, required this.media});
@@ -74,10 +74,13 @@ class MediaOverview extends StatelessWidget {
                             size: 60, 
                             color: Colors.white),                       
                       ),
-                      onTap: () {
-                        var router = MaterialPageRoute(
-                        builder: (context) => const Video());
-                        Navigator.of(context).push(router);
+                      onTap: () async{
+                        final  url = 'https://www.youtube.com/results?search_query=${media.title}';
+                        if(await canLaunchUrlString(url)){
+                          await launchUrlString(url);
+                        }else {
+                          throw 'Could not launch $url';
+                        }
                       },
                     ), 
                   ], 
