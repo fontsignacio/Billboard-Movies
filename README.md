@@ -1,6 +1,19 @@
 # Billboard-Movies
-Building Billboard Movies with Flutter APIs
+Building in Flutter a Billboard Movies with [TMDB](https://www.themoviedb.org/) API.
+Desing adaptative to 500x900. Without LocalStorage or Database.
 
+## App Features
+
+- Home Screen
+- Search Functionality
+- Select favourite movie
+- Movies different category
+- Popular movie and tv
+- Top rated movie and tv
+- Upcomming movie
+- On The Air tv
+- Movies and tv detail
+- Movies and tv trailer
 
 ## Screenshots
 
