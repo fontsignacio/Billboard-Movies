@@ -101,7 +101,6 @@ class MediaOverview extends StatelessWidget {
                   ],                       
                 ),   
                 child: BuildFavorite(media: media),
-                //child: const Icon(Icons.favorite_border, color: Colors.white, size: 35),  
               ), 
                     Container(
                       padding: const EdgeInsets.all(15),
@@ -143,7 +142,8 @@ class MediaOverview extends StatelessWidget {
             children: [
               Row(
                 children: <Widget>[
-                  Padding(
+                  Container(
+                    width: 500,
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Text(media.title, 
                         style: const TextStyle(
@@ -190,8 +190,11 @@ class MediaOverview extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 15),
               child: Text("\n${media.overview}\n", 
-                style: const TextStyle(color: Colors.white, fontSize: 17)
-            ) 
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                )
+              ) 
             )
           ),     
         ],

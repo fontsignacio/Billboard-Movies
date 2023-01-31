@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:billboard_movies/medias/media_movie.dart';
 import 'package:billboard_movies/medias/media_list_movie.dart';
 import 'package:billboard_movies/medias/media_movie_overview.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+//import 'package:shared_preferences/shared_preferences.dart';
  
 /*
 localStorage.setItem("favoritos", [""])

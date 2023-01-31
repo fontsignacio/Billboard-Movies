@@ -42,9 +42,10 @@ class Category extends StatelessWidget {
                           ),
                         ) 
                       ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 415),
-                        child: Icon(Icons.arrow_forward_ios_outlined, size: 20, color: Colors.white,),
+                      Container(
+                        alignment: Alignment.topRight,
+                        margin: const EdgeInsets.only(right: 10),
+                        child: const Icon(Icons.arrow_forward_ios_outlined, size: 20, color: Colors.white,),
                       )
                     ],
                   ),
